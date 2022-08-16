@@ -1,0 +1,15 @@
+﻿@page "/players"
+@inherits PlayersBase
+
+@if(Players == null) 
+{
+    <h3>Loading...</h3>
+} else 
+{
+    <ul>
+        @foreach(var player in Players)
+        {
+            <li>@player.Name</li>
+        }
+    </ul>
+}
