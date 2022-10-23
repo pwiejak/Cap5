@@ -1,0 +1,12 @@
+﻿@page "/players"
+@inherits PlayersBase
+
+@if(Players == null) 
+{
+    <h3>Loading...</h3>
+} else 
+{
+    <div class="row p-2 card">
+        <DisplayPlayersList Players="Players"></DisplayPlayersList>
+    </div>
+}

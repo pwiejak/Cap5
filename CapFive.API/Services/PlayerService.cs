@@ -13,6 +13,17 @@ namespace CapFive.API.Services
             _playerRepository = playerRepository;
         }
 
+        public async Task<PlayerDTO> GetPlayer(int id)
+        {
+            var player = await _playerRepository.GetPlayerById(id);
+            if(player == null)
+            {
+                throw new Exception($"Player with id: {id} does not exist");
+            }
+
+            return player.ToDto();
+        }
+
         public async Task<IEnumerable<PlayerDTO>> GetPlayers()
         {
             var players = await _playerRepository.GetPlayers();

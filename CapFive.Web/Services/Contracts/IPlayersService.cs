@@ -5,5 +5,6 @@ namespace CapFive.Web.Services.Contracts
     public interface IPlayersService
     {
         Task<IEnumerable<PlayerDTO>> GetPlayers();
+        Task<PlayerDTO> GetPlayer(int id);
     }
 }

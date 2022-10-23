@@ -2,7 +2,7 @@
 using CapFive.Web.Services.Contracts;
 using Microsoft.AspNetCore.Components;
 
-namespace CapFive.Web.Pages
+namespace CapFive.Web.Pages.Players
 {
     public class PlayersBase : ComponentBase
     {

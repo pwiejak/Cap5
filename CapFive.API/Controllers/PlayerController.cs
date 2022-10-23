@@ -29,5 +29,20 @@ namespace CapFive.API.Controllers
                 return Problem(e.Message, statusCode: (int)HttpStatusCode.InternalServerError);
             }
         }
+
+        [HttpGet("{id:int}")]
+        public async Task<ActionResult<PlayerDTO>> GetPlayer(int id)
+        {
+            try
+            {
+                var result = await _playerService.GetPlayer(id);
+                return Ok(result);
+            }
+            catch (Exception e)
+            {
+                return Problem(e.Message, statusCode: (int)HttpStatusCode.InternalServerError);
+            }
+        }
+
     }
 }

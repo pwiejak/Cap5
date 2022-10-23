@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32602.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapFive.Web", "CapFive.Web\CapFive.Web.csproj", "{7ED4E97F-F951-470F-B5E0-51CE11F723AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CapFive.Web", "CapFive.Web\CapFive.Web.csproj", "{7ED4E97F-F951-470F-B5E0-51CE11F723AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapFive.API", "CapFive.API\CapFive.API.csproj", "{72094503-6649-4B6D-9281-3705C27FC4F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CapFive.API", "CapFive.API\CapFive.API.csproj", "{72094503-6649-4B6D-9281-3705C27FC4F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapFive.Data", "CapFive.Data\CapFive.Data.csproj", "{B89B4508-C600-404F-AA6F-A586C2910C48}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CapFive.Data", "CapFive.Data\CapFive.Data.csproj", "{B89B4508-C600-404F-AA6F-A586C2910C48}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapFive.Shared", "CapFive.Shared\CapFive.Shared.csproj", "{10D8FCD2-FA89-4AE5-B0AB-F14329D0028F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CapFive.Shared", "CapFive.Shared\CapFive.Shared.csproj", "{10D8FCD2-FA89-4AE5-B0AB-F14329D0028F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

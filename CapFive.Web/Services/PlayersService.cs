@@ -14,6 +14,20 @@ namespace CapFive.Web.Services
             _httpClient = httpClient;
         }
 
+        public async Task<PlayerDTO> GetPlayer(int id)
+        {
+            try
+            {
+                var player = await _httpClient.GetFromJsonAsync<PlayerDTO>($"api/Player/{id}");
+                return player;
+            }
+            catch(Exception e)
+            {
+                Debugger.Log(1, "exception", e.Message);
+                throw;
+            }
+        }
+
         public async Task<IEnumerable<PlayerDTO>> GetPlayers()
         {
             try

@@ -1,0 +1,13 @@
+﻿@inherits DisplayPlayersListBase
+
+<ul>
+    @foreach (var player in Players)
+    {
+        <li>
+            <div class="row border-bottom">
+                <div class="col-md-6 name">@player.Name</div>
+                <div class="col-md-6"><a href="/player/@player.Id">Details</a></div>
+            </div>
+        </li>
+    }
+</ul>

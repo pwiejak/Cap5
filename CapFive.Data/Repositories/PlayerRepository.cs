@@ -12,6 +12,11 @@ namespace CapFive.Data.Repositories
             _db = db;
         }
 
+        public async Task<Player?> GetPlayerById(int id)
+        {
+            return await _db.Players.FirstOrDefaultAsync(p => p.Id == id);
+        }
+
         public async Task<IEnumerable<Player>> GetPlayers()
         {
             return await _db.Players.ToListAsync();

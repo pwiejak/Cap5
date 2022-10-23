@@ -5,5 +5,6 @@ namespace CapFive.API.Services
     public interface IPlayerService
     {
         Task<IEnumerable<PlayerDTO>> GetPlayers();
+        Task<PlayerDTO> GetPlayer(int id);
     }
 }

@@ -1,0 +1,18 @@
+﻿@page "/player/{Id:int}"
+@inherits PlayerDetailsBase
+
+@if(Player == null && string.IsNullOrWhiteSpace(ErrorMessage))
+{
+    <div>Loading...</div>
+}
+else if (!string.IsNullOrWhiteSpace(ErrorMessage))
+{
+    <div class="text-danger">@ErrorMessage</div>
+} else
+{
+    <h3>Player details</h3>
+    <div class="row">
+        <div class="col-md-6">Name</div>
+        <div class="col-md-6">@Player.Name</div>
+    </div>
+}

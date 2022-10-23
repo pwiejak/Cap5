@@ -7,11 +7,18 @@ namespace CapFive.API.DTO
     {
         public static IEnumerable<PlayerDTO> ToDtos(this IEnumerable<Player> players)
         {
-            return players.Select(p => new PlayerDTO
+            return players.Select(ToDto);
+        }
+
+        public static PlayerDTO ToDto(this Player player)
+        {
+            return new PlayerDTO
             {
-                Id = p.Id,
-                Name = p.Name,
-            });
+                Id = player.Id,
+                Name = player.Name,
+                Email = player.Email,
+                Surname = player.Surname
+            };
         }
     }
 }
