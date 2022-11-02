@@ -1,18 +1,37 @@
 ﻿@page "/player/{Id:int}"
 @inherits PlayerDetailsBase
+@using CapFive.Web.Pages.Common
 
-@if(Player == null && string.IsNullOrWhiteSpace(ErrorMessage))
+@if (Player == null && string.IsNullOrWhiteSpace(ErrorMessage))
 {
-    <div>Loading...</div>
+    <Spinner />
 }
 else if (!string.IsNullOrWhiteSpace(ErrorMessage))
 {
-    <div class="text-danger">@ErrorMessage</div>
-} else
+    <DisplayError ErrorMessage="@ErrorMessage"></DisplayError>
+}
+else
 {
     <h3>Player details</h3>
-    <div class="row">
-        <div class="col-md-6">Name</div>
-        <div class="col-md-6">@Player.Name</div>
-    </div>
+    <EditForm Model="@Player" OnSubmit="@FormSubmited">
+        <DataAnnotationsValidator />
+        <div class="form-group">
+            <label for="Name">Name</label>
+            <InputText @bind-Value=Player.Name class="form-control" id="Name" />
+        </div>
+        <div class="form-group">
+            <label for="Surname">Surname</label>
+            <InputText @bind-Value=Player.Surname class="form-control" id="Surname" />
+        </div>
+        <div class="form-group">
+            <label for="Email">Email</label>
+            <InputText @bind-Value=Player.Email class="form-control" id="Email" />
+        </div>
+        <input type="submit" class="btn btn-primary" value="Save" />
+    </EditForm>
+    if(!string.IsNullOrWhiteSpace(InfoMessage))
+    {
+        <p>@InfoMessage</p>
+    }
+
 }

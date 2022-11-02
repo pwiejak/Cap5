@@ -1,7 +1,8 @@
-﻿using System.Net;
+﻿using CapFive.API.Exceptions;
 using CapFive.API.Services;
 using CapFive.Shared.DTO;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace CapFive.API.Controllers
 {
@@ -37,6 +38,28 @@ namespace CapFive.API.Controllers
             {
                 var result = await _playerService.GetPlayer(id);
                 return Ok(result);
+            }
+            catch (NotFoundException e)
+            {
+                return NotFound(e.Message);
+            }
+            catch (Exception e)
+            {
+                return Problem(e.Message, statusCode: (int)HttpStatusCode.InternalServerError);
+            }
+        }
+
+        [HttpPut]
+        public async Task<ActionResult<PlayerDTO>> SavePlayer(PlayerDTO player)
+        {
+            try
+            {
+                var result = await _playerService.SavePlayer(player);
+                return Ok(result);
+            }
+            catch (NotFoundException e)
+            {
+                return NotFound(e.Message);
             }
             catch (Exception e)
             {

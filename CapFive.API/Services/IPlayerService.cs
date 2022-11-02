@@ -6,5 +6,6 @@ namespace CapFive.API.Services
     {
         Task<IEnumerable<PlayerDTO>> GetPlayers();
         Task<PlayerDTO> GetPlayer(int id);
+        Task<PlayerDTO> SavePlayer(PlayerDTO playerDto);
     }
 }

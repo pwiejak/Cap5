@@ -1,9 +1,10 @@
 ﻿@page "/players"
 @inherits PlayersBase
+@using CapFive.Web.Pages.Common
 
 @if(Players == null) 
 {
-    <h3>Loading...</h3>
+    <div><Spinner /></div>
 } else 
 {
     <div class="row p-2 card">
