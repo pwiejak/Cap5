@@ -30,12 +30,4 @@
         </div>
     </div>
     <input type="submit" class="btn btn-primary" value="Save" />
-    @if(!string.IsNullOrWhiteSpace(InfoMessage))
-    {
-        <DisplayInfo Message="@InfoMessage"/>
-    }
-    @if (!string.IsNullOrWhiteSpace(ErrorMessage))
-    {
-        <DisplayError ErrorMessage="@ErrorMessage" />
-    }
 </EditForm>

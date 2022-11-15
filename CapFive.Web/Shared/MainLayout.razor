@@ -1,17 +1,29 @@
-﻿@inherits LayoutComponentBase
+﻿@using CapFive.Web.Pages.Common
+@inherits MainLayoutBase
 
-<div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
+<CascadingValue Value="@DisplayMessage" Name="InfoToastEvent">
+    <CascadingValue Value="DisplayError" Name="ErrorToastEvent">
+        <div class="page">
+            <div class="sidebar">
+                <NavMenu />
+            </div>
 
-    <main>
-        <div class="top-row px-4">
-            <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+            <main>
+                <div class="top-row px-4">
+                    @if (!string.IsNullOrWhiteSpace(InfoMessage))
+                    {
+                        <DisplayInfo Message="@InfoMessage" />
+                    }
+                    @if (!string.IsNullOrWhiteSpace(ErrorMessage))
+                    {
+                        <DisplayError ErrorMessage="@ErrorMessage" />
+                    }
+                </div>
+
+                <article class="content px-4">
+                    @Body
+                </article>
+            </main>
         </div>
-
-        <article class="content px-4">
-            @Body
-        </article>
-    </main>
-</div>
+    </CascadingValue>
+</CascadingValue>

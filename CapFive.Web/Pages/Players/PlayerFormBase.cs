@@ -15,8 +15,11 @@ namespace CapFive.Web.Pages.Players
         [Inject]
         public IPlayersService PlayersService { get; set; }
 
-        public string ErrorMessage { get; set; }
-        public string InfoMessage { get; set; }
+        [CascadingParameter(Name = "InfoToastEvent")]
+        public EventCallback<string> DisplayMessage { get; set; }
+
+        [CascadingParameter(Name = "ErrorToastEvent")]
+        public EventCallback<string> DisplayError { get; set; }
 
         protected override void OnInitialized()
         {
@@ -31,11 +34,10 @@ namespace CapFive.Web.Pages.Players
             {
                 if (!context.Validate())
                 {
-                    InfoMessage = "Form invalid";
+                    await DisplayError.InvokeAsync("Form invalid");
                     return;
                 }
 
-                InfoMessage = string.Empty;
                 var result = await PlayersService.SavePlayer(Player);
                 if (Player.Id == 0)
                 {
@@ -43,11 +45,11 @@ namespace CapFive.Web.Pages.Players
                     Player.Id = result.Id;
                 }
 
-                InfoMessage = "Changes saved successfaully";
+                await DisplayMessage.InvokeAsync("Changes saved successfaully");
             }
             catch (Exception e)
             {
-                ErrorMessage = e.Message;
+                await DisplayError.InvokeAsync(e.Message);
             }
         }
     }
