@@ -1,13 +1,16 @@
 ﻿@inherits DisplayPlayersListBase
+@inject IStringLocalizer<Resource> localizer
 
 <ul>
     @foreach (var player in Players)
     {
         <li>
-            <div class="row border-bottom">
-                <div class="col-md-3 border-end name">@player.Name</div>
-                <div class="col-md-3 name">@player.Surname</div>
-                <div class="col-md-6"><a href="/player/@player.Id">Details</a></div>
+            <div class="row border-bottom text-dark">
+                <div class="col-md-3 border-end">@player.Name</div>
+                <div class="col-md-3">@player.Surname</div>
+                <div class="col-md-6">
+                    <a href="/player/@player.Id"><span class="oi oi-ellipses"></span></a>
+                </div>
             </div>
         </li>
     }

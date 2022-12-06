@@ -1,6 +1,7 @@
 ﻿@page "/players"
 @inherits PlayersBase
 @using CapFive.Web.Pages.Common
+@inject IStringLocalizer<Resource> localizer
 
 @if(Players == null) 
 {
@@ -11,8 +12,9 @@
         <DisplayPlayersList Players="Players"></DisplayPlayersList>
     </div>
     <div class="row">
-        <NavLink class="nav-link" href="player">
-            <span class="oi oi-person aria-hidden="true"></span> Add new player
+        <NavLink class="nav-link text-dark" href="player">
+            <span class="oi oi-person" aria-hidden="true"></span>
+            <span class="p-1">@localizer["addNewPlayer"]</span>
         </NavLink>
     </div>
 }
