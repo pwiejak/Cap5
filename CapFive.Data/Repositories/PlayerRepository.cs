@@ -3,13 +3,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CapFive.Data.Repositories
 {
-    public class PlayerRepository : IPlayerRepository
+    public class PlayerRepository : RepositoryBase, IPlayerRepository
     {
-        private readonly CapFiveDbContext _db;
-
-        public PlayerRepository(CapFiveDbContext db)
+        public PlayerRepository(CapFiveDbContext db) : base(db)
         {
-            _db = db;
         }
 
         public void Add(Player player)
@@ -25,11 +22,6 @@ namespace CapFive.Data.Repositories
         public async Task<IEnumerable<Player>> GetPlayers()
         {
             return await _db.Players.ToListAsync();
-        }
-
-        public async Task SaveAsync()
-        {
-            await _db.SaveChangesAsync();
         }
 
         public void Update(Player player)

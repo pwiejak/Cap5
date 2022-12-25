@@ -19,9 +19,11 @@ builder.Services.AddDbContextPool<CapFiveDbContext>(options =>
 
 // Repositories
 builder.Services.AddScoped<IPlayerRepository, PlayerRepository>();
+builder.Services.AddScoped<ITournamentRepository, TournamentRepository>();
 
 // Services
 builder.Services.AddScoped<IPlayerService, PlayerService>();
+builder.Services.AddScoped<ITournamentService, TournamentService>();
 
 var app = builder.Build();
 

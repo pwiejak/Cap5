@@ -95,5 +95,14 @@ namespace CapFive.Web.Shared.ResourceFiles {
                 return ResourceManager.GetString("players", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tournaments.
+        /// </summary>
+        public static string tournaments {
+            get {
+                return ResourceManager.GetString("tournaments", resourceCulture);
+            }
+        }
     }
 }

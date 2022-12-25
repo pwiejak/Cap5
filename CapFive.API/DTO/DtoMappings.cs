@@ -20,5 +20,20 @@ namespace CapFive.API.DTO
                 Surname = player.Surname
             };
         }
+
+        public static IEnumerable<TournamentDTO> ToDtos(this IEnumerable<Tournament> tournaments)
+        {
+            return tournaments.Select(ToDto);
+        }
+
+        public static TournamentDTO ToDto(this Tournament tournament)
+        {
+            return new TournamentDTO
+            {
+                Id = tournament.Id,
+                Date = tournament.Date,
+                Name = tournament.Name
+            };
+        }
     }
 }
