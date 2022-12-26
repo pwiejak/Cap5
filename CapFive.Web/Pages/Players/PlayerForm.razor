@@ -1,13 +1,15 @@
 ﻿@inherits PlayerFormBase
 @using CapFive.Web.Pages.Common
+@inject IStringLocalizer<Resource> localizer
 
-<h3>Player details</h3>
+<h3>@localizer["playerDetails"]</h3>
+
 <EditForm Model="@Player" OnSubmit="@FormSubmited">
     <DataAnnotationsValidator />
     <div class="row">
         <div class="col-sm-12 col-md-6">
             <div class="form-group">
-                <label for="Name">Name</label>
+                <label for="Name">@localizer["name"]</label>
                 <InputText @bind-Value=Player.Name class="form-control" id="Name" />
             </div>
         </div>
@@ -16,7 +18,7 @@
     <div class="row">
         <div class="col-sm-12 col-md-6">
             <div class="form-group">
-                <label for="Surname">Surname</label>
+                <label for="Surname">@localizer["surname"]</label>
                 <InputText @bind-Value=Player.Surname class="form-control" id="Surname" />
             </div>
         </div>
@@ -24,7 +26,7 @@
     <div class="row">
         <div class="col-sm-12 col-md-6">
             <div class="form-group">
-                <label for="Email">Email</label>
+                <label for="Email">@localizer["email"]</label>
                 <InputText @bind-Value=Player.Email class="form-control" id="Email" />
             </div>
         </div>

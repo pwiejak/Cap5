@@ -5,26 +5,25 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.Extensions.Localization;
 
-namespace CapFive.Web.Pages.Players
+namespace CapFive.Web.Pages.Tournaments
 {
-    public class PlayerFormBase : BaseComponent
+    public class TournamentFormBase : BaseComponent
     {
         [Parameter]
-        public PlayerDTO PlayerDetails { get; set; }
-
-        public PlayerDTO Player { get; set; }
+        public TournamentDTO TournamentDto { get; set; }
+        public TournamentDTO Tournament { get; set; }
 
         [Inject]
         public IStringLocalizer<Resource> Localizer { get; set; }
 
         [Inject]
-        public IPlayersService PlayersService { get; set; }
+        public ITournamentsService TournamentsService { get; set; }
 
         protected override void OnInitialized()
         {
-            Player = PlayerDetails != null
-                ? PlayerDetails
-                : new PlayerDTO();
+            Tournament = TournamentDto != null
+                ? TournamentDto
+                : new TournamentDTO();
         }
 
         public async Task FormSubmited(EditContext context)
@@ -37,11 +36,11 @@ namespace CapFive.Web.Pages.Players
                     return;
                 }
 
-                var result = await PlayersService.SavePlayer(Player);
-                if (Player.Id == 0)
+                var result = await TournamentsService.SaveTournament(Tournament);
+                if (Tournament.Id == 0)
                 {
                     // redirect
-                    Player.Id = result.Id;
+                    Tournament.Id = result.Id;
                 }
 
                 await DisplayMessage.InvokeAsync(Localizer["changesSavedSuccess"]);

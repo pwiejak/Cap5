@@ -1,0 +1,15 @@
+﻿@inherits DisplayTournamentsListBase
+
+<ul>
+    @foreach (var tournament in Tournaments)
+    {
+        <li>
+            <div class="row border-bottom text-dark">
+                <div class="col-md-3 border-end">@tournament.Name</div>
+                <div class="col-md-6">
+                    <a href="/tournament/@tournament.Id"><span class="bi bi-three-dots"></span></a>
+                </div>
+            </div>
+        </li>
+    }
+</ul>

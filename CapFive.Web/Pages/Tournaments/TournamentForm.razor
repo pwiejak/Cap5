@@ -1,0 +1,24 @@
+﻿@inherits TournamentFormBase
+@using Common
+@inject IStringLocalizer<Resource> localizer
+
+<h3>@localizer["tournamentDetails"]</h3>
+
+<EditForm Model="@Tournament" OnSubmit="@FormSubmited">
+    <DataAnnotationsValidator />
+    <div class="row">
+        <div class="col-sm-12 col-md-6">
+            <div class="form-group">
+                <label for="Name">@localizer["tournamentName"]</label>
+                <InputText @bind-Value=Tournament.Name class="form-control" id="Name" />
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-6">
+            <div class="form-group">
+                <label for="Date">@localizer["tournamentDate"]</label>
+                <InputDate @bind-Value=Tournament.Date class="form-control" id="Date" />
+            </div>
+        </div>
+    </div>
+    <input type="submit" class="btn btn-primary" value="Save" />
+</EditForm>

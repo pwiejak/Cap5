@@ -120,14 +120,47 @@
   <data name="addNewPlayer" xml:space="preserve">
     <value>Add New Player</value>
   </data>
+  <data name="addNewTournament" xml:space="preserve">
+    <value>Add New Tournament</value>
+  </data>
+  <data name="changesSavedSuccess" xml:space="preserve">
+    <value>Changes Saved</value>
+  </data>
+  <data name="changesSaveFailure" xml:space="preserve">
+    <value>Saving changes failed, please try again</value>
+  </data>
   <data name="details" xml:space="preserve">
     <value>Details</value>
+  </data>
+  <data name="email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="formInvalid" xml:space="preserve">
+    <value>There are some errors, please correct them</value>
   </data>
   <data name="home" xml:space="preserve">
     <value>Home</value>
   </data>
+  <data name="playerDetails" xml:space="preserve">
+    <value>Player Details</value>
+  </data>
+  <data name="playerName" xml:space="preserve">
+    <value>Name</value>
+  </data>
   <data name="players" xml:space="preserve">
     <value>Players</value>
+  </data>
+  <data name="surname" xml:space="preserve">
+    <value>Surname</value>
+  </data>
+  <data name="tournamentDate" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="tournamentDetails" xml:space="preserve">
+    <value>Tournament Details</value>
+  </data>
+  <data name="tournamentName" xml:space="preserve">
+    <value>Tournament Name</value>
   </data>
   <data name="tournaments" xml:space="preserve">
     <value>Tournaments</value>

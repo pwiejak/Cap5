@@ -37,7 +37,10 @@ namespace CapFive.API.Services
             if (playerDto == null)
                 throw new ArgumentNullException(nameof(PlayerDTO));
 
-            var player = playerDto.Id > 0 ? await _playerRepository.GetPlayerById(playerDto.Id) : new Data.Model.Player();
+            var player = playerDto.Id > 0
+                ? await _playerRepository.GetPlayerById(playerDto.Id)
+                : new Data.Model.Player();
+
             player.Name = playerDto.Name;
             player.Surname = playerDto.Surname;
             player.Email = playerDto.Email;

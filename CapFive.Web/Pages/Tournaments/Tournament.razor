@@ -1,0 +1,17 @@
+﻿@page "/tournament"
+@page "/tournament/{Id:int}"
+@inherits TournamentBase
+@using CapFive.Web.Pages.Common
+
+@if(Tournament == null && string.IsNullOrWhiteSpace(ErrorMessage))
+{
+    <Spinner />
+} 
+else if(!string.IsNullOrWhiteSpace(ErrorMessage))
+{
+    <DisplayError ErrorMessage="@ErrorMessage"></DisplayError>
+}
+else
+{
+    <TournamentForm TournamentDto="Tournament" />
+}

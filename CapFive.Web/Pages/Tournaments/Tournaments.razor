@@ -1,2 +1,19 @@
 ﻿@page "/tournaments"
 @inherits TournamentsBase
+@using CapFive.Web.Pages.Common
+@inject IStringLocalizer<Resource> localizer
+
+@if(Tournaments == null)
+{
+    <div><Spinner /></div>
+} else {
+    <div class="row card">
+        <DisplayTournamentsList Tournaments="Tournaments"></DisplayTournamentsList>
+    </div>
+    <div class="row">
+        <NavLink class="nav-link text-dark" href="tournament">
+            <span class="bi bi-clipboard-plus" aria-hidden="true"></span>
+            <span class="p-1">@localizer["addNewTournament"]</span>
+        </NavLink>
+    </div>
+}

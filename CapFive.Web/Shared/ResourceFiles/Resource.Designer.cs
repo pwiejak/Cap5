@@ -70,11 +70,56 @@ namespace CapFive.Web.Shared.ResourceFiles {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add New Tournament.
+        /// </summary>
+        public static string addNewTournament {
+            get {
+                return ResourceManager.GetString("addNewTournament", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Changes Saved.
+        /// </summary>
+        public static string changesSavedSuccess {
+            get {
+                return ResourceManager.GetString("changesSavedSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Saving changes failed, please try again.
+        /// </summary>
+        public static string changesSaveFailure {
+            get {
+                return ResourceManager.GetString("changesSaveFailure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Details.
         /// </summary>
         public static string details {
             get {
                 return ResourceManager.GetString("details", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email.
+        /// </summary>
+        public static string email {
+            get {
+                return ResourceManager.GetString("email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There are some errors, please correct them.
+        /// </summary>
+        public static string formInvalid {
+            get {
+                return ResourceManager.GetString("formInvalid", resourceCulture);
             }
         }
         
@@ -88,11 +133,65 @@ namespace CapFive.Web.Shared.ResourceFiles {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Player Details.
+        /// </summary>
+        public static string playerDetails {
+            get {
+                return ResourceManager.GetString("playerDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        public static string playerName {
+            get {
+                return ResourceManager.GetString("playerName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Players.
         /// </summary>
         public static string players {
             get {
                 return ResourceManager.GetString("players", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Surname.
+        /// </summary>
+        public static string surname {
+            get {
+                return ResourceManager.GetString("surname", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date.
+        /// </summary>
+        public static string tournamentDate {
+            get {
+                return ResourceManager.GetString("tournamentDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tournament Details.
+        /// </summary>
+        public static string tournamentDetails {
+            get {
+                return ResourceManager.GetString("tournamentDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tournament Name.
+        /// </summary>
+        public static string tournamentName {
+            get {
+                return ResourceManager.GetString("tournamentName", resourceCulture);
             }
         }
         

@@ -26,7 +26,7 @@ namespace CapFive.Data.Repositories
 
         public void Update(Tournament tournament)
         {
-            throw new NotImplementedException();
+            _db.Tournaments.Update(tournament);
         }
     }
 }
