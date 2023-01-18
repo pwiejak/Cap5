@@ -8,5 +8,6 @@ namespace CapFive.Data.Repositories
         Task<Player?> GetPlayerById(int id);
         void Update(Player player);
         void Add(Player player);
+        Task<IEnumerable<Player>> GetPlayers(IEnumerable<int> playerIds);
     }
 }

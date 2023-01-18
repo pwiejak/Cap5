@@ -123,6 +123,9 @@
   <data name="addNewTournament" xml:space="preserve">
     <value>Add New Tournament</value>
   </data>
+  <data name="availablePlayers" xml:space="preserve">
+    <value>Available Players</value>
+  </data>
   <data name="changesSavedSuccess" xml:space="preserve">
     <value>Changes Saved</value>
   </data>
@@ -149,6 +152,12 @@
   </data>
   <data name="players" xml:space="preserve">
     <value>Players</value>
+  </data>
+  <data name="save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="selectedPlayers" xml:space="preserve">
+    <value>Selected Players</value>
   </data>
   <data name="surname" xml:space="preserve">
     <value>Surname</value>

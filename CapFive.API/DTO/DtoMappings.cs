@@ -32,7 +32,8 @@ namespace CapFive.API.DTO
             {
                 Id = tournament.Id,
                 Date = tournament.Date,
-                Name = tournament.Name
+                Name = tournament.Name,
+                Players = tournament.Players.ToDtos().ToList()
             };
         }
     }

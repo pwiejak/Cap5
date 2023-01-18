@@ -12,6 +12,8 @@ namespace CapFive.Web.Pages.Tournaments
         [Parameter]
         public TournamentDTO TournamentDto { get; set; }
         public TournamentDTO Tournament { get; set; }
+        [Parameter]
+        public List<PlayerSelectionDTO> AllPlayers { get; set; }
 
         [Inject]
         public IStringLocalizer<Resource> Localizer { get; set; }
@@ -24,6 +26,9 @@ namespace CapFive.Web.Pages.Tournaments
             Tournament = TournamentDto != null
                 ? TournamentDto
                 : new TournamentDTO();
+            //PlayersToSelect = PlayersToSelect
+            //    .Where(p => !Tournament.Players.Any(tp => tp.Id == p.Id))
+            //    .ToList();
         }
 
         public async Task FormSubmited(EditContext context)
@@ -49,6 +54,25 @@ namespace CapFive.Web.Pages.Tournaments
             {
                 await DisplayError.InvokeAsync(Localizer["changesSaveFailure"]);
             }
+        }
+
+        public void SelectPlayer(PlayerSelectionDTO player)
+        {
+            if (player == null)
+                return;
+
+            player.IsSelected = true;
+            Tournament.Players.Add(player.Player);
+        }
+
+        public void UnselectPlayer(PlayerDTO player)
+        {
+            if (player == null)
+                return;
+
+            var selection = AllPlayers.First(p => p.Player.Id == player.Id);
+            selection.IsSelected = false;
+            Tournament.Players.Remove(player);
         }
     }
 }

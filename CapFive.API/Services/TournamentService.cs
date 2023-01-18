@@ -9,10 +9,12 @@ namespace CapFive.API.Services
     public class TournamentService : ITournamentService
     {
         private readonly ITournamentRepository _tournamentRepository;
+        private readonly IPlayerRepository _playerRepository;
 
-        public TournamentService(ITournamentRepository tournamentRepository)
+        public TournamentService(ITournamentRepository tournamentRepository, IPlayerRepository playerRepository)
         {
             _tournamentRepository = tournamentRepository;
+            _playerRepository = playerRepository;
         }
 
         public async Task<TournamentDTO> GetTournament(int id)
@@ -40,9 +42,15 @@ namespace CapFive.API.Services
             var tournament = tournamentDto.Id > 0
                 ? await _tournamentRepository.GetTournamentById(tournamentDto.Id)
                 : new Tournament();
+            var tournamentPlayers = await _playerRepository.GetPlayers(tournamentDto.Players.Select(p => p.Id));
 
             tournament.Name = tournamentDto.Name;
             tournament.Date = tournamentDto.Date;
+            tournament.Players.Clear();
+            foreach (var player in tournamentPlayers)
+            {
+                tournament.Players.Add(player);
+            }
 
             if (tournamentDto.Id > 0)
             {

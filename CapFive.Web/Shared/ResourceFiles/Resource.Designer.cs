@@ -79,6 +79,15 @@ namespace CapFive.Web.Shared.ResourceFiles {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Available Players.
+        /// </summary>
+        public static string availablePlayers {
+            get {
+                return ResourceManager.GetString("availablePlayers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Changes Saved.
         /// </summary>
         public static string changesSavedSuccess {
@@ -156,6 +165,24 @@ namespace CapFive.Web.Shared.ResourceFiles {
         public static string players {
             get {
                 return ResourceManager.GetString("players", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        public static string save {
+            get {
+                return ResourceManager.GetString("save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Selected Players.
+        /// </summary>
+        public static string selectedPlayers {
+            get {
+                return ResourceManager.GetString("selectedPlayers", resourceCulture);
             }
         }
         

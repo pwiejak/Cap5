@@ -10,9 +10,12 @@ namespace CapFive.Web.Pages.Tournaments
         public int Id { get; set; }
 
         public TournamentDTO Tournament { get; set; }
+        public List<PlayerSelectionDTO> AllPlayers { get; set; }
 
         [Inject]
         public ITournamentsService TournamentsService { get; set; }
+        [Inject]
+        public IPlayersService PlayerService { get; set; }
 
         public string ErrorMessage { get; set; }
 
@@ -23,6 +26,13 @@ namespace CapFive.Web.Pages.Tournaments
                 Tournament = Id > 0
                     ? await TournamentsService.GetTournament(Id)
                     : new TournamentDTO();
+                AllPlayers = (await PlayerService.GetPlayers())
+                    .Select(p => new PlayerSelectionDTO
+                    {
+                        Player = p,
+                        IsSelected = Tournament.Players.Any(pt => pt.Id == p.Id)
+                    })
+                    .ToList();
             }
             catch (Exception e)
             {

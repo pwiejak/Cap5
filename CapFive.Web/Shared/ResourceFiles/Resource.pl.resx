@@ -123,6 +123,9 @@
   <data name="addNewTournament" xml:space="preserve">
     <value>Dodaj Nowy Turniej</value>
   </data>
+  <data name="availablePlayers" xml:space="preserve">
+    <value>Dostępni zawodnicy</value>
+  </data>
   <data name="changesSavedSuccess" xml:space="preserve">
     <value>Zmiany Zapisane</value>
   </data>
@@ -149,6 +152,12 @@
   </data>
   <data name="players" xml:space="preserve">
     <value>Zawodnicy</value>
+  </data>
+  <data name="save" xml:space="preserve">
+    <value>Zapisz</value>
+  </data>
+  <data name="selectedPlayers" xml:space="preserve">
+    <value>Wybrani zawodnicy</value>
   </data>
   <data name="surname" xml:space="preserve">
     <value>Nazwisko</value>

@@ -20,5 +20,36 @@
             </div>
         </div>
     </div>
-    <input type="submit" class="btn btn-primary" value="Save" />
+    <div>
+        <div>@localizer["selectedPlayers"]</div>
+        @foreach (var selectedPlayer in Tournament.Players)
+        {
+            <div class="row">
+                <span>
+                    <span class="text-danger" @onclick="() => UnselectPlayer(selectedPlayer)">
+                        <i class="bi bi-dash-circle"></i>
+                    </span>
+                    <span>@selectedPlayer.Name</span>
+                </span>
+            </div>
+        }
+    </div>
+    <div>
+        <div>@localizer["availablePlayers"]</div>
+        @foreach (var playerToSelect in AllPlayers)
+        {
+            if(!playerToSelect.IsSelected)
+            {
+                <div class="row">
+                    <span class="m-1">
+                        <span class="text-success" @onclick="() => SelectPlayer(playerToSelect)">
+                            <i class="bi bi-plus-circle"></i>
+                        </span>
+                        <span>@playerToSelect.Player.Name</span>
+                    </span>
+                </div>
+            }
+        }
+    </div>
+    <input type="submit" class="btn btn-primary" value="@localizer["save"]" />
 </EditForm>

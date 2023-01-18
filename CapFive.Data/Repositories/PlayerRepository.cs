@@ -24,6 +24,11 @@ namespace CapFive.Data.Repositories
             return await _db.Players.ToListAsync();
         }
 
+        public async Task<IEnumerable<Player>> GetPlayers(IEnumerable<int> playerIds)
+        {
+            return await _db.Players.Where(p => playerIds.Contains(p.Id)).ToListAsync();
+        }
+
         public void Update(Player player)
         {
             _db.Players.Update(player);

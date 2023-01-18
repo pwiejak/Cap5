@@ -16,7 +16,9 @@ namespace CapFive.Data.Repositories
 
         public async Task<Tournament?> GetTournamentById(int id)
         {
-            return await _db.Tournaments.FirstOrDefaultAsync(t => t.Id == id);
+            return await _db.Tournaments
+                .Include(t => t.Players)
+                .FirstOrDefaultAsync(t => t.Id == id);
         }
 
         public async Task<IEnumerable<Tournament>> GetTournaments()
