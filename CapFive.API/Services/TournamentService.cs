@@ -42,10 +42,14 @@ namespace CapFive.API.Services
             var tournament = tournamentDto.Id > 0
                 ? await _tournamentRepository.GetTournamentById(tournamentDto.Id)
                 : new Tournament();
-            var tournamentPlayers = await _playerRepository.GetPlayers(tournamentDto.Players.Select(p => p.Id));
+            if (tournament == null)
+            {
+                throw new NotFoundException($"Tournament with id {tournamentDto.Id} not found.");
+            }
 
-            tournament.Name = tournamentDto.Name;
-            tournament.Date = tournamentDto.Date;
+            tournament.Map(tournamentDto);
+
+            var tournamentPlayers = await _playerRepository.GetPlayers(tournamentDto.Players.Select(p => p.Id));
             tournament.Players.Clear();
             foreach (var player in tournamentPlayers)
             {

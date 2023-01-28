@@ -159,6 +159,9 @@
   <data name="selectedPlayers" xml:space="preserve">
     <value>Wybrani zawodnicy</value>
   </data>
+  <data name="startTournament" xml:space="preserve">
+    <value>Rozpocznij Turniej</value>
+  </data>
   <data name="surname" xml:space="preserve">
     <value>Nazwisko</value>
   </data>

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using CapFive.Shared.Tournament;
+using System.ComponentModel.DataAnnotations;
 
 namespace CapFive.Data.Model
 {
@@ -18,5 +19,7 @@ namespace CapFive.Data.Model
         public DateTime? Date { get; set; }
 
         public ICollection<Player> Players { get; set; }
+
+        public TournamentStatus Status { get; set; }
     }
 }

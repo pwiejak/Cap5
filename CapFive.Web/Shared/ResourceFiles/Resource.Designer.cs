@@ -187,6 +187,15 @@ namespace CapFive.Web.Shared.ResourceFiles {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Start Tournament.
+        /// </summary>
+        public static string startTournament {
+            get {
+                return ResourceManager.GetString("startTournament", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Surname.
         /// </summary>
         public static string surname {

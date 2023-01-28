@@ -10,9 +10,25 @@ namespace CapFive.API.DTO
             return players.Select(ToDto);
         }
 
+        public static IEnumerable<Player> ToModel(this IEnumerable<PlayerDTO> players)
+        {
+            return players.Select(ToModel);
+        }
+
         public static PlayerDTO ToDto(this Player player)
         {
             return new PlayerDTO
+            {
+                Id = player.Id,
+                Name = player.Name,
+                Email = player.Email,
+                Surname = player.Surname
+            };
+        }
+
+        public static Player ToModel(this PlayerDTO player)
+        {
+            return new Player
             {
                 Id = player.Id,
                 Name = player.Name,
@@ -33,8 +49,28 @@ namespace CapFive.API.DTO
                 Id = tournament.Id,
                 Date = tournament.Date,
                 Name = tournament.Name,
-                Players = tournament.Players.ToDtos().ToList()
+                Players = tournament.Players.ToDtos().ToList(),
+                Status = tournament.Status
             };
+        }
+
+        public static Tournament ToModel(this TournamentDTO tournament)
+        {
+            return new Tournament
+            {
+                Id = tournament.Id,
+                Date = tournament.Date,
+                Name = tournament.Name,
+                Players = tournament.Players.ToModel().ToList(),
+                Status = tournament.Status
+            };
+        }
+
+        public static void Map(this Tournament tournament, TournamentDTO tournamentDto)
+        {
+            tournament.Name = tournamentDto.Name;
+            tournament.Date = tournamentDto.Date;
+            tournament.Status = tournamentDto.Status;
         }
     }
 }

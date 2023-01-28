@@ -4,7 +4,7 @@
 
 <h3>@localizer["tournamentDetails"]</h3>
 
-<EditForm Model="@Tournament" OnSubmit="@FormSubmited">
+<EditForm Model="@Tournament" OnSubmit="@FormSubmited" Context="formContext">
     <DataAnnotationsValidator />
     <div class="row">
         <div class="col-sm-12 col-md-6">
@@ -52,4 +52,5 @@
         }
     </div>
     <input type="submit" class="btn btn-primary" value="@localizer["save"]" />
+    <input type="submit" class="btn btn-success" value="@localizer["startTournament"]" @onclick="() => StartTournament(formContext)" />
 </EditForm>

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using CapFive.Shared.Tournament;
+using System.ComponentModel.DataAnnotations;
 
 namespace CapFive.Shared.DTO
 {
@@ -16,5 +17,7 @@ namespace CapFive.Shared.DTO
         public DateTime? Date { get; set; }
 
         public List<PlayerDTO> Players { get; set; }
+
+        public TournamentStatus Status { get; set; }
     }
 }

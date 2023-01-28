@@ -11,7 +11,10 @@ else if(!string.IsNullOrWhiteSpace(ErrorMessage))
 {
     <DisplayError ErrorMessage="@ErrorMessage"></DisplayError>
 }
-else
+else if(Tournament?.Status <= CapFive.Shared.Tournament.TournamentStatus.Created)
 {
     <TournamentForm TournamentDto="Tournament" AllPlayers="AllPlayers"/>
+} else
+{
+    <TournamentDetails Tournament="Tournament"/>
 }
