@@ -10,7 +10,7 @@ namespace CapFive.Web.Pages.Tournaments
         public int Id { get; set; }
 
         public TournamentDTO Tournament { get; set; }
-        public List<PlayerSelectionDTO> AllPlayers { get; set; }
+        public List<PlayerSelectionDTO> AllPlayers { get; set; } = new List<PlayerSelectionDTO>();
 
         [Inject]
         public ITournamentsService TournamentsService { get; set; }

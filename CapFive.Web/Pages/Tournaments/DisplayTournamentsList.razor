@@ -6,6 +6,12 @@
         <li>
             <div class="row border-bottom text-dark">
                 <div class="col-md-3 border-end">@tournament.Name</div>
+                <div class="col-md-3 border-end">
+                    @if (tournament.Status == CapFive.Shared.Tournament.TournamentStatus.Started)
+                    {
+                        <span class="bi bi-play-circle-fill text-success"></span>
+                    }
+                </div>
                 <div class="col-md-6">
                     <a href="/tournament/@tournament.Id"><span class="bi bi-three-dots"></span></a>
                 </div>
