@@ -132,6 +132,12 @@
   <data name="changesSaveFailure" xml:space="preserve">
     <value>Wystąpił błąd, spróbuj ponownie</value>
   </data>
+  <data name="chooseWinner" xml:space="preserve">
+    <value>Wybierz zwycięzcę</value>
+  </data>
+  <data name="close" xml:space="preserve">
+    <value>Zamknij</value>
+  </data>
   <data name="details" xml:space="preserve">
     <value>Szczegóły</value>
   </data>

@@ -5,3 +5,55 @@
 <div class="row">
     <h2>@Tournament.Name</h2>
 </div>
+<div class="row">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                @foreach (var player in Tournament.Players)
+                {
+                    <th scope="col">@player.Name</th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var player in Tournament.Players)
+            {
+                <tr>
+                    <th scope="row">@player.Name</th>
+                    @foreach (var versusPlayer in Tournament.Players)
+                    {
+                        @if(player.Id != versusPlayer.Id)
+                        {
+                            <td @onclick="() => Open(player, versusPlayer)"></td>
+                        } else
+                        {
+                            <td class="bg-dark bg-opacity-25"></td>
+                        }
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<CapFive.Web.Pages.Common.Modal @ref="_modal">
+    <Title>@localizer["chooseWinner"]</Title>
+    <Body>
+        <div class="row">
+            <div class="col-md-6 col-sm-12" align="center">
+                <input type="radio" class="btn-check" name="options-outlined" id="p1-select" autocomplete="off">
+                <label class="btn btn-outline-success" for="p1-select">@PlayerOne?.Name</label>
+            </div>
+            <div class="col-md-6 col-sm-12" align="center">
+                <input type="radio" class="btn-check" name="options-outlined" id="p2-select" autocomplete="off">
+                <label class="btn btn-outline-success" for="p2-select">@PlayerTwo?.Name</label>
+            </div>
+        </div>
+    </Body>
+    <Footer>
+        <div class="col-12" align="center">
+            <button type="button" class="btn btn-primary">@localizer["save"]</button>
+        </div>
+    </Footer>
+</CapFive.Web.Pages.Common.Modal>

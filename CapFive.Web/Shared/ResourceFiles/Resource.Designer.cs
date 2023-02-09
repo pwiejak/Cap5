@@ -106,6 +106,24 @@ namespace CapFive.Web.Shared.ResourceFiles {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Choose Winner.
+        /// </summary>
+        public static string chooseWinner {
+            get {
+                return ResourceManager.GetString("chooseWinner", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Close.
+        /// </summary>
+        public static string close {
+            get {
+                return ResourceManager.GetString("close", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Details.
         /// </summary>
         public static string details {
