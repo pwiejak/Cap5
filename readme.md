@@ -3,4 +3,4 @@ Set multiple startup projects: Cap5.Web and Cap5.API
 
 # To use migrations: 
 - Set Cap5.API as starting project.
-- OPen package manager console, select CapFive.Data as target project and run migration commands.
+- Open package manager console, select CapFive.Data as target project and run migration commands.
