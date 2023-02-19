@@ -12,5 +12,25 @@ namespace CapFive.Data
 
         public DbSet<Player> Players { get; set; }
         public DbSet<Tournament> Tournaments { get; set; }
+        public DbSet<Round> Rounds { get; set; }
+        public DbSet<Matchup> Matchups { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Matchup>()
+                .HasOne(m => m.Round)
+                .WithMany(m => m.Matchups)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            //modelBuilder.Entity<Matchup>()
+            //    .HasOne(m => m.HomePlayer)
+            //    .WithMany(m => m.Matchups)
+            //    .OnDelete(DeleteBehavior.NoAction);
+
+            //modelBuilder.Entity<Matchup>()
+            //    .HasOne(m => m.AwayPlayer)
+            //    .WithMany(m => m.Matchups)
+            //    .OnDelete(DeleteBehavior.NoAction);
+        }
     }
 }

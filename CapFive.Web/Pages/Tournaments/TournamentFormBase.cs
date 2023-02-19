@@ -65,6 +65,8 @@ namespace CapFive.Web.Pages.Tournaments
                 return;
             }
 
+            if (Tournament.Status == CapFive.Shared.Tournament.TournamentStatus.Started) return;
+
             Tournament.Status = CapFive.Shared.Tournament.TournamentStatus.Started;
             await TournamentsService.SaveTournament(Tournament);
             NavigationManager.NavigateTo($"tournament/{Tournament.Id}", true);

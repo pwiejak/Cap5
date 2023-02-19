@@ -21,5 +21,7 @@ namespace CapFive.Data.Model
         public ICollection<Player> Players { get; set; }
 
         public TournamentStatus Status { get; set; }
+
+        public List<Round> Rounds { get; set; }
     }
 }

@@ -363,3 +363,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/CapFive.API/Properties
+/CapFive.API/.config/dotnet-tools.json
+/CapFive.Web/Properties/ServiceDependencies/CapFiveWeb-dev - Web Deploy/profile.arm.json
