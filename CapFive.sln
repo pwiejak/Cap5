@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CapFive.Data", "CapFive.Dat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CapFive.Shared", "CapFive.Shared\CapFive.Shared.csproj", "{10D8FCD2-FA89-4AE5-B0AB-F14329D0028F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapFive.API.Tests", "CapFive.API.Tests\CapFive.API.Tests.csproj", "{1F14851E-3EBD-4328-8399-425D76786FDC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{10D8FCD2-FA89-4AE5-B0AB-F14329D0028F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10D8FCD2-FA89-4AE5-B0AB-F14329D0028F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10D8FCD2-FA89-4AE5-B0AB-F14329D0028F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F14851E-3EBD-4328-8399-425D76786FDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F14851E-3EBD-4328-8399-425D76786FDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F14851E-3EBD-4328-8399-425D76786FDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F14851E-3EBD-4328-8399-425D76786FDC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

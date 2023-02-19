@@ -13,6 +13,6 @@ namespace CapFive.Data.Model
         public string? Surname { get; set; }
         public string? Email { get; set; }
 
-        public ICollection<Tournament> Tournament { get; set; }
+        public ICollection<Tournament> Tournaments { get; set; }
     }
 }
