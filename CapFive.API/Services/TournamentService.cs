@@ -3,6 +3,8 @@ using CapFive.API.Exceptions;
 using CapFive.Data.Model;
 using CapFive.Data.Repositories;
 using CapFive.Shared.DTO;
+using CapFive.Shared.Tournament;
+using Microsoft.EntityFrameworkCore;
 
 namespace CapFive.API.Services
 {
@@ -65,6 +67,43 @@ namespace CapFive.API.Services
                 _tournamentRepository.Add(tournament);
             }
 
+            await _tournamentRepository.SaveAsync();
+
+            return tournament.ToDto();
+        }
+
+        public async Task<TournamentDTO> StartTournament(int tournamentId)
+        {
+            var tournament = await _tournamentRepository.GetQuerable()
+                .Include(t => t.Players)
+                .FirstOrDefaultAsync(t => t.Id == tournamentId);
+
+            if (tournament == null)
+            {
+                throw new NotFoundException($"Tournament with id {tournamentId} not found.");
+            }
+
+            if (tournament.Status == TournamentStatus.Started)
+            {
+                throw new BadRequestException($"Tournament with id {tournamentId} is already in status {TournamentStatus.Started}");
+            }
+
+            tournament.Status = TournamentStatus.Started;
+            var round = new Round() { Name = "1" };
+
+            foreach (var player in tournament.Players)
+            {
+                foreach (var versusPlayer in tournament.Players)
+                {
+                    if (player.Id == versusPlayer.Id || round.Matchups.Any(m => m.IsBetween(player.Id, versusPlayer.Id))) continue;
+
+                    round.AddMatchup(player, versusPlayer);
+                }
+            }
+
+            tournament.Rounds.Add(round);
+
+            _tournamentRepository.Update(tournament);
             await _tournamentRepository.SaveAsync();
 
             return tournament.ToDto();

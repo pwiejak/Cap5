@@ -14,6 +14,12 @@ namespace CapFive.Data.Repositories
             _db.Tournaments.Add(tournament);
         }
 
+        public IQueryable<Tournament> GetQuerable()
+        {
+            return _db.Tournaments
+                .AsQueryable();
+        }
+
         public async Task<Tournament?> GetTournamentById(int id)
         {
             return await _db.Tournaments

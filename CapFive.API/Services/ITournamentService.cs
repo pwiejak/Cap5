@@ -7,5 +7,6 @@ namespace CapFive.API.Services
         Task<TournamentDTO> GetTournament(int id);
         Task<IEnumerable<TournamentDTO>> GetTournaments();
         Task<TournamentDTO> SaveTournament(TournamentDTO tournamentDto);
+        Task<TournamentDTO> StartTournament(int tournamentId);
     }
 }

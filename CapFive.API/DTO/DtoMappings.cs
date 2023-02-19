@@ -50,7 +50,8 @@ namespace CapFive.API.DTO
                 Date = tournament.Date,
                 Name = tournament.Name,
                 Players = tournament.Players.ToDtos().ToList(),
-                Status = tournament.Status
+                Status = tournament.Status,
+                Rounds = tournament.Rounds.Select(ToDto).ToList()
             };
         }
 
@@ -71,6 +72,50 @@ namespace CapFive.API.DTO
             tournament.Name = tournamentDto.Name;
             tournament.Date = tournamentDto.Date;
             tournament.Status = tournamentDto.Status;
+        }
+
+        public static MatchupDTO ToDto(this Matchup matchup)
+        {
+            return new MatchupDTO
+            {
+                Id = matchup.Id,
+                HomePlayer = matchup.HomePlayer?.ToDto(),
+                AwayPlayer = matchup.AwayPlayer?.ToDto(),
+                Name = matchup.Name,
+                WinnerPlayer = matchup.WinnerPlayer?.ToDto()
+            };
+        }
+
+        public static Matchup ToModel(this MatchupDTO matchup)
+        {
+            return new Matchup
+            {
+                Id = matchup.Id,
+                HomePlayer = matchup.HomePlayer?.ToModel(),
+                AwayPlayer = matchup.AwayPlayer?.ToModel(),
+                Name = matchup.Name,
+                WinnerPlayer = matchup.WinnerPlayer?.ToModel()
+            };
+        }
+
+        public static RoundDTO ToDto(this Round round)
+        {
+            return new RoundDTO
+            {
+                Id = round.Id,
+                Name = round.Name,
+                Matchups = round.Matchups.Select(x => x.ToDto()).ToList()
+            };
+        }
+
+        public static Round ToModel(this RoundDTO round)
+        {
+            return new Round
+            {
+                Id = round.Id,
+                Name = round.Name,
+                Matchups = round.Matchups.Select(x => x.ToModel()).ToList()
+            };
         }
     }
 }

@@ -8,6 +8,7 @@ namespace CapFive.Data.Model
         public Tournament()
         {
             Players = new List<Player>();
+            Rounds = new List<Round>();
         }
 
         [Key]

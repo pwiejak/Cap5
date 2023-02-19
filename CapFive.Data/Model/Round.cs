@@ -19,5 +19,19 @@ namespace CapFive.Data.Model
         public Tournament Tournament { get; set; }
 
         public List<Matchup> Matchups { get; set; }
+
+        public Matchup AddMatchup(Player homePlayer, Player awayPlayer)
+        {
+            var matchup = new Matchup()
+            {
+                HomePlayerId = homePlayer.Id,
+                AwayPlayerId = awayPlayer.Id,
+                Round = this
+            };
+
+            Matchups.Add(matchup);
+
+            return matchup;
+        }
     }
 }

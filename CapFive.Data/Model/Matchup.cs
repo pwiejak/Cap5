@@ -7,8 +7,7 @@ namespace CapFive.Data.Model
         [Key]
         public int Id { get; set; }
 
-        [Required]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         public int RoundId { get; set; }
         public Round Round { get; set; }
@@ -21,5 +20,11 @@ namespace CapFive.Data.Model
 
         public int? WinnerPlayerId { get; set; }
         public Player? WinnerPlayer { get; set; }
+
+        public bool IsBetween(int playerOneId, int playerTwoId)
+        {
+            return HomePlayerId == playerOneId && AwayPlayerId == playerTwoId
+                || AwayPlayerId == playerOneId && HomePlayerId == playerTwoId;
+        }
     }
 }
