@@ -1,4 +1,5 @@
 ﻿using CapFive.Shared.Tournament;
+using System.ComponentModel.DataAnnotations;
 
 namespace CapFive.Shared.DTO
 {
@@ -12,6 +13,7 @@ namespace CapFive.Shared.DTO
 
         public int Id { get; set; }
 
+        [Required]
         public string Name { get; set; }
 
         public DateTime? Date { get; set; }

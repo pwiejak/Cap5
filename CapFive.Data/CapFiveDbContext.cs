@@ -7,7 +7,6 @@ namespace CapFive.Data
     {
         public CapFiveDbContext(DbContextOptions<CapFiveDbContext> options) : base(options)
         {
-
         }
 
         public DbSet<Player> Players { get; set; }
@@ -21,16 +20,6 @@ namespace CapFive.Data
                 .HasOne(m => m.Round)
                 .WithMany(m => m.Matchups)
                 .OnDelete(DeleteBehavior.NoAction);
-
-            //modelBuilder.Entity<Matchup>()
-            //    .HasOne(m => m.HomePlayer)
-            //    .WithMany(m => m.Matchups)
-            //    .OnDelete(DeleteBehavior.NoAction);
-
-            //modelBuilder.Entity<Matchup>()
-            //    .HasOne(m => m.AwayPlayer)
-            //    .WithMany(m => m.Matchups)
-            //    .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }
