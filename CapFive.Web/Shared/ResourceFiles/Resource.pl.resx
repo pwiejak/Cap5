@@ -159,6 +159,9 @@
   <data name="players" xml:space="preserve">
     <value>Zawodnicy</value>
   </data>
+  <data name="roundNr" xml:space="preserve">
+    <value>Kolejka</value>
+  </data>
   <data name="save" xml:space="preserve">
     <value>Zapisz</value>
   </data>

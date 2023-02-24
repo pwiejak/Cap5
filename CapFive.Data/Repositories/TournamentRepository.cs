@@ -24,6 +24,7 @@ namespace CapFive.Data.Repositories
         {
             return await _db.Tournaments
                 .Include(t => t.Players)
+                .Include(r => r.Rounds)
                 .FirstOrDefaultAsync(t => t.Id == id);
         }
 

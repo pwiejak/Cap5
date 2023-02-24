@@ -187,6 +187,15 @@ namespace CapFive.Web.Shared.ResourceFiles {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Round.
+        /// </summary>
+        public static string roundNr {
+            get {
+                return ResourceManager.GetString("roundNr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Save.
         /// </summary>
         public static string save {

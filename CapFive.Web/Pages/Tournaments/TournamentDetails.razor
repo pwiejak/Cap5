@@ -6,35 +6,42 @@
     <h2>@Tournament.Name</h2>
 </div>
 <div class="row">
-    <table class="table table-bordered table-hover">
-        <thead>
-            <tr>
-                <th scope="col"></th>
-                @foreach (var player in Tournament.Players)
-                {
-                    <th scope="col">@player.Name</th>
-                }
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var player in Tournament.Players)
-            {
-                <tr>
-                    <th scope="row">@player.Name</th>
-                    @foreach (var versusPlayer in Tournament.Players)
-                    {
-                        @if(player.Id != versusPlayer.Id)
+    @foreach (var round in Tournament.Rounds)
+    {
+        <div>
+            <h3>@localizer["roundNr"]: @round.Name</h3>
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col"></th>
+                        @foreach (var player in Tournament.Players)
                         {
-                            <td @onclick="() => Open(player, versusPlayer)"></td>
-                        } else
-                        {
-                            <td class="bg-dark bg-opacity-25"></td>
+                            <th scope="col">@player.Name</th>
                         }
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var player in Tournament.Players)
+                    {
+                        <tr>
+                            <th scope="row">@player.Name</th>
+                            @foreach (var versusPlayer in Tournament.Players)
+                            {
+                                @if (player.Id != versusPlayer.Id)
+                                {
+                                    <td @onclick="() => Open(player, versusPlayer)"></td>
+                                }
+                                else
+                                {
+                                    <td class="bg-dark bg-opacity-25"></td>
+                                }
+                            }
+                        </tr>
                     }
-                </tr>
-            }
-        </tbody>
-    </table>
+                </tbody>
+            </table>
+        </div>
+    }
 </div>
 
 <CapFive.Web.Pages.Common.Modal @ref="_modal">
