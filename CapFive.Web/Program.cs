@@ -13,6 +13,8 @@ builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https:/
 // Services
 builder.Services.AddScoped<IPlayersService, PlayersService>();
 builder.Services.AddScoped<ITournamentsService, TournamentsService>();
+builder.Services.AddScoped<IMatchupsService, MatchupsService>();
+
 builder.Services.AddLocalization();
 
 await builder.Build().RunAsync();

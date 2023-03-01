@@ -29,7 +29,7 @@
                             {
                                 @if (player.Id != versusPlayer.Id)
                                 {
-                                    <td @onclick="() => Open(player, versusPlayer)"></td>
+                                    <td @onclick="() => Open(player, versusPlayer, round.Id)"></td>
                                 }
                                 else
                                 {
@@ -49,18 +49,30 @@
     <Body>
         <div class="row">
             <div class="col-md-6 col-sm-12" align="center">
-                <input type="radio" class="btn-check" name="options-outlined" id="p1-select" autocomplete="off">
+                <input type="radio" 
+                    class="btn-check" 
+                    name="options-outlined" 
+                    id="p1-select" 
+                    @onchange="@(() => SelectWinner(PlayerOne))"
+                    checked="@(Winner != null && PlayerOne?.Id == Winner?.Id)"
+                >
                 <label class="btn btn-outline-success" for="p1-select">@PlayerOne?.Name</label>
             </div>
             <div class="col-md-6 col-sm-12" align="center">
-                <input type="radio" class="btn-check" name="options-outlined" id="p2-select" autocomplete="off">
+                <input type="radio" 
+                    class="btn-check" 
+                    name="options-outlined"
+                    id="p2-select" 
+                    @onchange="@(() => SelectWinner(PlayerTwo))"
+                    checked="@(Winner != null && PlayerTwo?.Id == Winner?.Id)"
+                >
                 <label class="btn btn-outline-success" for="p2-select">@PlayerTwo?.Name</label>
             </div>
         </div>
     </Body>
     <Footer>
         <div class="col-12" align="center">
-            <button type="button" class="btn btn-primary">@localizer["save"]</button>
+            <button type="button" class="btn btn-primary" @onclick="() => SaveGame()">@localizer["save"]</button>
         </div>
     </Footer>
 </CapFive.Web.Pages.Common.Modal>

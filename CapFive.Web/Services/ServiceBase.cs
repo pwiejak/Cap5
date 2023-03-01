@@ -85,5 +85,25 @@ namespace CapFive.Web.Services
                 throw;
             }
         }
+
+        protected async Task<TResult> Post<TBody, TResult>(TBody body, string url)
+        {
+            try
+            {
+                var response = await _httpClient.PostAsJsonAsync<TBody>(url, body);
+                if (response.IsSuccessStatusCode)
+                {
+                    return await response.Content.ReadFromJsonAsync<TResult>();
+                }
+
+                var message = await response.Content.ReadAsStringAsync();
+                throw new Exception(message);
+            }
+            catch (Exception e)
+            {
+                Debugger.Log(1, "exception", e.Message);
+                throw;
+            }
+        }
     }
 }
