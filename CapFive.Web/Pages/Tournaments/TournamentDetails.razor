@@ -29,7 +29,14 @@
                             {
                                 @if (player.Id != versusPlayer.Id)
                                 {
-                                    <td @onclick="() => Open(player, versusPlayer, round.Id)"></td>
+                                    var matchup = round.GetMatchupForPlayers(player.Id, versusPlayer.Id);
+                                    @if(matchup != null && matchup.WinnerPlayer != null)
+                                    {
+                                        <td @onclick="() => Open(player, versusPlayer, round.Id)" class="@(matchup.WinnerPlayer.Id == player.Id ? "bg-success" : "bg-danger")"></td>
+                                    } else
+                                    {
+                                        <td @onclick="() => Open(player, versusPlayer, round.Id)"></td>
+                                    }
                                 }
                                 else
                                 {
