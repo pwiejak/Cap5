@@ -8,5 +8,6 @@ namespace CapFive.Web.Services.Contracts
         Task<TournamentDTO> GetTournament(int id);
         Task<TournamentDTO> SaveTournament(TournamentDTO tournament);
         Task<TournamentDTO> StartTournament(int tournamentId);
+        Task<TournamentDTO> AddRound(int tournamentId);
     }
 }

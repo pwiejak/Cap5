@@ -12,6 +12,8 @@ namespace CapFive.Web.Pages.Tournaments
 
         [Inject]
         public IMatchupsService MatchupsService { get; set; }
+        [Inject]
+        public ITournamentsService TournamentsService { get; set; }
 
         public int RoundId { get; set; }
         public PlayerDTO PlayerOne { get; set; }
@@ -50,6 +52,15 @@ namespace CapFive.Web.Pages.Tournaments
             Matchup.WinnerPlayer = Winner;
 
             _modal?.Close();
+        }
+
+        public async Task AddRound()
+        {
+            var result = await TournamentsService.AddRound(Tournament.Id);
+            if (result != null)
+            {
+                Tournament = result;
+            }
         }
     }
 }

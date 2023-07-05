@@ -79,6 +79,15 @@ namespace CapFive.Web.Shared.ResourceFiles {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Another Round.
+        /// </summary>
+        public static string addRound {
+            get {
+                return ResourceManager.GetString("addRound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Available Players.
         /// </summary>
         public static string availablePlayers {

@@ -28,5 +28,10 @@ namespace CapFive.Web.Services
         {
             return await PostResource<TournamentDTO>(null, $"api/tournament/{tournamentId}/start");
         }
+
+        public async Task<TournamentDTO> AddRound(int tournamentId)
+        {
+            return await PostResource<TournamentDTO>(null, $"api/tournament/{tournamentId}/addRound");
+        }
     }
 }

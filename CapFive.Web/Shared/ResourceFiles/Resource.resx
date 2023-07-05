@@ -123,6 +123,9 @@
   <data name="addNewTournament" xml:space="preserve">
     <value>Add New Tournament</value>
   </data>
+  <data name="addRound" xml:space="preserve">
+    <value>Add Another Round</value>
+  </data>
   <data name="availablePlayers" xml:space="preserve">
     <value>Available Players</value>
   </data>

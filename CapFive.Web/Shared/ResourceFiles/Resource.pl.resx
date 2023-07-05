@@ -123,6 +123,9 @@
   <data name="addNewTournament" xml:space="preserve">
     <value>Dodaj Nowy Turniej</value>
   </data>
+  <data name="addRound" xml:space="preserve">
+    <value>Dodaj Kolejkę</value>
+  </data>
   <data name="availablePlayers" xml:space="preserve">
     <value>Dostępni zawodnicy</value>
   </data>

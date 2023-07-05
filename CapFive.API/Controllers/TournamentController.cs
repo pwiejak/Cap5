@@ -88,5 +88,27 @@ namespace CapFive.API.Controllers
                 return Problem(e.Message, statusCode: (int)HttpStatusCode.InternalServerError);
             }
         }
+
+        [HttpPost("{tournamentId}/addRound")]
+        public async Task<ActionResult<TournamentDTO>> AddRound([FromRoute] int tournamentId)
+        {
+            try
+            {
+                var result = await _tournamentService.AddRound(tournamentId);
+                return Ok(result);
+            }
+            catch (NotFoundException e)
+            {
+                return NotFound(e.Message);
+            }
+            catch (BadRequestException e)
+            {
+                return BadRequest(e.Message);
+            }
+            catch (Exception e)
+            {
+                return Problem(e.Message, statusCode: (int)HttpStatusCode.InternalServerError);
+            }
+        }
     }
 }

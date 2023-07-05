@@ -91,6 +91,45 @@ namespace CapFive.API.Services
             tournament.Status = TournamentStatus.Started;
             var round = new Round() { Name = "1" };
 
+            CreateMatchupsForRound(tournament, round);
+            tournament.Rounds.Add(round);
+
+            _tournamentRepository.Update(tournament);
+            await _tournamentRepository.SaveAsync();
+
+            return tournament.ToDto();
+        }
+
+        public async Task<TournamentDTO> AddRound(int tournamentId)
+        {
+            var tournament = await _tournamentRepository.GetQuerable()
+                            .Include(t => t.Rounds)
+                            .Include(t => t.Players)
+                            .FirstOrDefaultAsync(t => t.Id == tournamentId);
+
+            if (tournament == null)
+            {
+                throw new NotFoundException($"Tournament with id {tournamentId} not found.");
+            }
+
+            if (tournament.Status != TournamentStatus.Started)
+            {
+                throw new BadRequestException($"Cannot add round to tournament in status: {tournament.Status}");
+            }
+
+            var round = new Round() { Name = (tournament.Rounds.Count + 1).ToString() };
+
+            CreateMatchupsForRound(tournament, round);
+            tournament.Rounds.Add(round);
+
+            _tournamentRepository.Update(tournament);
+            await _tournamentRepository.SaveAsync();
+
+            return tournament.ToDto();
+        }
+
+        private static void CreateMatchupsForRound(Tournament? tournament, Round round)
+        {
             foreach (var player in tournament.Players)
             {
                 foreach (var versusPlayer in tournament.Players)
@@ -100,13 +139,6 @@ namespace CapFive.API.Services
                     round.AddMatchup(player, versusPlayer);
                 }
             }
-
-            tournament.Rounds.Add(round);
-
-            _tournamentRepository.Update(tournament);
-            await _tournamentRepository.SaveAsync();
-
-            return tournament.ToDto();
         }
     }
 }
