@@ -366,3 +366,4 @@ FodyWeavers.xsd
 /CapFive.API/Properties
 /CapFive.API/.config/dotnet-tools.json
 /CapFive.Web/Properties/ServiceDependencies/CapFiveWeb-dev - Web Deploy/profile.arm.json
+/CapFive.Web/wwwroot/appsettings.Production.json

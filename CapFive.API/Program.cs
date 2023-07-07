@@ -29,16 +29,13 @@ builder.Services.AddScoped<IMatchupService, MatchupService>();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseCors(policy =>
 {
-    policy.WithOrigins("http://localhost:7228", "https://localhost:7228")
+    var allowedOrigins = builder.Configuration.GetValue<string>("AllowedOrigins").Split(',');
+    policy.WithOrigins(allowedOrigins)
     .AllowAnyMethod()
     .WithHeaders(HeaderNames.ContentType);
 });
