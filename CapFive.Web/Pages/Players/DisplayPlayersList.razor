@@ -3,12 +3,15 @@
 <ul>
     @foreach (var player in Players)
     {
+        var playerLink = $"player/{@player.Id}";
+        var playerDisplayName = $"{player.Name} {player.Surname}";
+
         <li>
             <div class="row border-bottom text-dark">
-                <div class="col-md-3 border-end">@player.Name</div>
-                <div class="col-md-3">@player.Surname</div>
-                <div class="col-md-6">
-                    <a href="/player/@player.Id"><span class="bi bi-three-dots"></span></a>
+                <div class="col-12 border-end">
+                    <NavLink class="nav-link text-dark" href="@playerLink">
+                        <span>@playerDisplayName</span>
+                    </NavLink>
                 </div>
             </div>
         </li>
