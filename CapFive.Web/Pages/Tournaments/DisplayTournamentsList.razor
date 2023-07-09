@@ -1,19 +1,23 @@
 ﻿@inherits DisplayTournamentsListBase
+@inject NavigationManager Navigation
 
 <ul>
-    @foreach (var tournament in Tournaments)
+    @foreach (var tournament in Tournaments.OrderByDescending(o => o.Id))
     {
+        var tournamentLink = $"/tournament/{@tournament.Id}";
+
         <li>
             <div class="row border-bottom text-dark">
-                <div class="col-md-3 border-end">@tournament.Name</div>
-                <div class="col-md-3 border-end">
+                <div class="col-10 p-1">
+                    <NavLink class="nav-link text-dark" href="@tournamentLink">
+                        <span>@tournament.Name</span>
+                    </NavLink>
+                </div>
+                <div class="col-2 border-end">
                     @if (tournament.Status == CapFive.Shared.Tournament.TournamentStatus.Started)
                     {
                         <span class="bi bi-play-circle-fill text-success"></span>
                     }
-                </div>
-                <div class="col-md-6">
-                    <a href="/tournament/@tournament.Id"><span class="bi bi-three-dots"></span></a>
                 </div>
             </div>
         </li>
